@@ -39,20 +39,23 @@ li.no-tasks {
   color: black;
   padding-left: 70px;
   padding-right: 70px;
-  border: 1px solid red ;
-}
-.todo {
-  border: 1px solid blue;
 }
 
+.list-group-item:hover .x-container {
+  display: inline-flex;
+}
+
+
 .x-container {
+  align-items: center;
+  display: none;
   cursor: pointer;
-  border: 1px solid green !important;
-  color: #ebd8d9ff !important;
+  color: #ebd8d9ff;
   background-color: transparent;
 }
-.x {
-  color: #ebd8d9ff !important;
+
+.fa-x:hover {
+  color: #C6939D;
 }
 
 .card-footer {

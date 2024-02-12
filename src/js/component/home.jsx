@@ -39,7 +39,7 @@ const Home = () => {
 								<span className="todo">{todo}</span>
 								<div className="x-container" onClick={() => handleDelete(index)}>
 									<span className="x">
-										X
+										<i className="fa-solid fa-x"></i>
 									</span>
 								</div>
 							</li>
