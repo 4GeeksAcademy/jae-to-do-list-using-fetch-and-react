@@ -1,35 +1,66 @@
 
-/* 
-
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
 */
 body {
-    margin-top: 100px;
-}
-
-ul {
-    padding: 0;
-    margin-bottom: 0;
-}
-
-ul li {
-    border: 1px solid grey;
-    list-style: none;
-    padding: 5px;
-}
-
-input {
-    border:none;
-    width: 100%;
+  background: #f5f5f5;
 }
 
 h1 {
-    text-align: center;
+  color: #ebd8d9ff;
+  font-size: 60px;
+  font-weight: 10;
+  text-align: center;
+
 }
+div.todo-card {
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 10px 0 -5px #eee,
+    0 10px 1px -4px rgba(0, 0, 0, 0.15), 0 20px 0 -10px #eee,
+    0 20px 1px -9px rgba(0, 0, 0, 0.15), 
+    0 1rem 1rem rgba(0, 0, 0, 0.15),
+    0 1.5rem 2rem rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    margin-bottom: 8rem;
+    border-radius: 0;
+}
+input {
+  width: 100%;
+  border: none;
+}
+
+li.no-tasks {
+  display: block;
+  text-align: center;
+  color: lightgray;
+
+}
+.list-group-item{
+  display: inline-flex;
+  justify-content: space-between;
+  color: black;
+  padding-left: 70px;
+  padding-right: 70px;
+  border: 1px solid red ;
+}
+.todo {
+  border: 1px solid blue;
+}
+
+.x-container {
+  cursor: pointer;
+  border: 1px solid green !important;
+  color: #ebd8d9ff !important;
+  background-color: transparent;
+}
+.x {
+  color: #ebd8d9ff !important;
+}
+
+.card-footer {
+  background-color: white;
+  color: lightgrey;
+  align-items: center;
+  height: 38px;
+  font-size: small;
+  display: flex;
+}
+

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+
 
 // Create your first component
 const Home = () => {
@@ -8,8 +7,8 @@ const Home = () => {
 	const [todos, setTodos] = useState([]);
 	const handleDelete = index => {
 		setTodos(todos.filter((_, i) => i !== index));
-	  };
-	  
+	};
+
 	const handleKeyDown = e => {
 		if (e.keyCode === 13 && inputValue.trim() !== "") {
 			// Check if the pressed key is Enter and inputValue is not empty
@@ -20,27 +19,35 @@ const Home = () => {
 
 	return (
 		<div className="container">
-			<h1>My To Do's</h1>
-			<ul>
-				<li>
-					<input
-						type="text"
-						onChange={e => setInputValue(e.target.value)}
-						value={inputValue}
-						onKeyDown={handleKeyDown} // Use handleKeyDown function
-						placeholder="What needs to be done?"
-					/>
-				</li>
-				{todos.map((todo, index) => (
-					<li key={index}>
-						{todo}
-						<button onClick={() => handleDelete(index)}>
-							<FontAwesomeIcon icon={faTrashCan} />
-						</button>
+			<h1 className="mt-5 mb-5" >todos</h1>
+			<div className="card todo-card" style={{ maxWidth: "800px" }}>
+				<ul className="list-group list-group-flush">
+					<li className="list-group-item">
+						<input
+							type="text"
+							onChange={e => setInputValue(e.target.value)}
+							value={inputValue}
+							onKeyDown={handleKeyDown} // Use handleKeyDown function
+							placeholder="What needs to be done?"
+						/>
 					</li>
-				))}
-			</ul>
-			<div>{todos.length} tasks</div>
+					{todos.length === 0 ? (
+						<li className="list-group-item no-tasks">No tasks, add a task</li>
+					) : (		
+						todos.map((todo, index) => (
+							<li key={index} className=" list-group-item todo-item">
+								<span className="todo">{todo}</span>
+								<div className="x-container" onClick={() => handleDelete(index)}>
+									<span className="x">
+										X
+									</span>
+								</div>
+							</li>
+						))
+					)}
+				</ul>
+				<div className="card-footer">{todos.length} items left</div>
+			</div>
 		</div>
 	);
 };
