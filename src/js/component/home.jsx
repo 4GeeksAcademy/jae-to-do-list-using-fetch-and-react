@@ -9,12 +9,17 @@ const Home = () => {
 		setTodos(todos.filter((_, i) => i !== index));
 	};
 
+
 	const handleKeyDown = e => {
 		if (e.keyCode === 13 && inputValue.trim() !== "") {
 			// Check if the pressed key is Enter and inputValue is not empty
 			setTodos([...todos, inputValue.trim()]); // Add trimmed inputValue to todos
 			setInputValue(""); // Clear inputValue after adding todo
 		}
+	};
+
+	const handleCleanAllTasks = () => {
+		setTodos([]);
 	};
 
 	return (
@@ -33,7 +38,7 @@ const Home = () => {
 					</li>
 					{todos.length === 0 ? (
 						<li className="list-group-item no-tasks">No tasks, add a task</li>
-					) : (		
+					) : (
 						todos.map((todo, index) => (
 							<li key={index} className=" list-group-item todo-item">
 								<span className="todo">{todo}</span>
@@ -47,6 +52,9 @@ const Home = () => {
 					)}
 				</ul>
 				<div className="card-footer">{todos.length} items left</div>
+				<button className="btn btn-danger btn-sm mt-3 rounded-0 " onClick={handleCleanAllTasks}>
+					Clean All Tasks
+				</button>
 			</div>
 		</div>
 	);
