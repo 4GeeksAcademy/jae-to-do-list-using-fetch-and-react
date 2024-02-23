@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import Fetch from "./Fetch";
+import { addTaskToApi, deleteTaskFromApi } from "./UpdateAPI";
+
 
 
 // Create your first component
 const Home = () => {
 	const [inputValue, setInputValue] = useState("");
 	const [todos, setTodos] = useState([]);
+
 	const handleDelete = index => {
-		setTodos(todos.filter((_, i) => i !== index));
+		const updatedTodos = todos.filter((todo, i) => index !==i);
+		setTodos(updatedTodos);
+		deleteTaskFromApi (updatedTodos, setTodos);
 	};
 
 
@@ -15,13 +20,17 @@ const Home = () => {
 		if (e.keyCode === 13 && inputValue.trim() !== "") {
 			// Check if the pressed key is Enter and inputValue is not empty
 			setTodos([...todos, inputValue.trim()]); // Add trimmed inputValue to todos
+			addTaskToApi(todos, inputValue, setTodos); // Pass on todos, inputValue, and setTodos to addTaskToApi in UpdateApi.jsx
+
 			setInputValue(""); // Clear inputValue after adding todo
 		}
 	};
 
 	const handleCleanAllTasks = () => {
 		setTodos([]);
+		deleteTaskFromApi([], setTodos);
 	};
+
 
 	return (
 		<div className="container">
