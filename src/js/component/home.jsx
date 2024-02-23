@@ -40,8 +40,8 @@ const Home = () => {
 						<li className="list-group-item no-tasks">No tasks, add a task</li>
 					) : (
 						todos.map((todo, index) => (
-							<li key={index} className=" list-group-item todo-item">
-								<span className="todo">{todo}</span>
+							<li key={todo.id} className=" list-group-item todo-item">
+								<span className="todo">{todo.label}</span>
 								<div className="x-container" onClick={() => handleDelete(index)}>
 									<span className="x">
 										<i className="fa-solid fa-x"></i>
