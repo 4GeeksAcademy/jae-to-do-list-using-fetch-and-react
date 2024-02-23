@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Fetch from "./Fetch";
 
 
 // Create your first component
@@ -55,6 +56,7 @@ const Home = () => {
 				<button className="btn btn-danger btn-sm mt-3 rounded-0 " onClick={handleCleanAllTasks}>
 					Clean All Tasks
 				</button>
+				<Fetch setTodos={setTodos} />
 			</div>
 		</div>
 	);
