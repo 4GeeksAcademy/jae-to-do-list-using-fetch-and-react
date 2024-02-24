@@ -17,14 +17,18 @@ const Home = () => {
 
 
 	const handleKeyDown = e => {
-		if (e.keyCode === 13 && inputValue.trim() !== "") {
-			// Check if the pressed key is Enter and inputValue is not empty
-			setTodos([...todos, inputValue.trim()]); // Add trimmed inputValue to todos
-			addTaskToApi(todos, inputValue, setTodos); // Pass on todos, inputValue, and setTodos to addTaskToApi in UpdateApi.jsx
-
-			setInputValue(""); // Clear inputValue after adding todo
-		}
-	};
+        if (e.keyCode === 13 && inputValue.trim() !== "") {
+            const newTodo = {
+                id: Date.now(), // Assigning a unique identifier to the new todo
+                label: inputValue.trim(),
+                done: false
+            };
+            // Check if the pressed key is Enter and inputValue is not empty
+            setTodos([...todos, newTodo]); // Add trimmed inputValue to todos
+            addTaskToApi(todos, inputValue, setTodos); // Pass on todos, inputValue, and setTodos to addTaskToApi in UpdateApi.jsx
+            setInputValue(""); // Clear inputValue after adding todo
+        }
+    };
 
 	const handleCleanAllTasks = () => {
 		setTodos([]);
